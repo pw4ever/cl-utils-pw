@@ -6,6 +6,7 @@
   :author "Wei Peng <write.to.peng.wei@gmail.com>"
   :license "MIT"
   :depends-on (#:alexandria
+	       #:quicklisp
                #:swank)
   :components ((:file "package")
                (:file "cl-utils-pw")))
