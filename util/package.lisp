@@ -4,5 +4,7 @@
    #:alexandria)
   (:export
    #:with-keywords
+   #:random-select-from-list
+   #:random-list
    ))
 
