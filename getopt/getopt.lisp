@@ -9,17 +9,19 @@
   "alist of (OPTION . TYPE). TYPE is one of :REQUIRED, :OPTIONAL, :NONE as understood by GETOPT:GETOPT.
 
 Example:
-(declare-getopt-options
- (:world . :required)
- (:random-state . :optional)
- (:repl . :none)
- (:init . :none))
+(apply #'declare-getopt-options
+       '(
+	 (:world . :required)
+	 (:random-state . :optional)
+	 (:repl . :none)
+	 (:init . :none)
+	))
 "
   (iterate:iter
     (iterate:for (option . type) :in options)
-    (let ((option-name (string-upcase (if (stringp option) option (symbol-name option)))))
-      ;(push (list (string-downcase option-name) type t) *getopts*)
-      (setf (gethash (make-keyword option-name) *init-opts*) nil))))
+    (let ((option (string-upcase (if (stringp option) option (symbol-name option)))))
+      (push (list (string-downcase option) type t) *getopts*)
+      (setf (gethash (make-keyword option) *init-opts*) nil))))
 
 (defun parse-getopt-options (arg-list)
   "ARG-LIST should be, for example, #+SBCL SB-EXT:*POSIX-ARGV*"
