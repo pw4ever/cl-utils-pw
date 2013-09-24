@@ -5,9 +5,30 @@
   :description "Common Lisp utility collection."
   :author "Wei Peng <write.to.peng.wei@gmail.com>"
   :license "MIT"
-  :depends-on (#:alexandria
+  :depends-on (
+	       #:alexandria
 	       #:quicklisp
-               #:swank)
+               #:swank
+	       #:iterate
+	       #:getopt
+	       )
   :components ((:file "package")
-               (:file "cl-utils-pw")))
+
+	       (:module :getopt
+		:components ((:file "package")
+			     (:file "getopt")))
+
+	       (:module :swank
+		:components ((:file "package")
+			     (:file "swank")))
+
+	       (:module :quicklisp
+		:components ((:file "package")
+			     (:file "quicklisp")))
+
+	       (:module :util
+		:components ((:file "package")
+			     (:file "util")))
+
+	       ))
 
