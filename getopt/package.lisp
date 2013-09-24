@@ -8,5 +8,6 @@
    #:parse-getopt-options
    #:getopts
    #:getopt
+   #:setopt
    ))
 

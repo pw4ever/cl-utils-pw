@@ -42,3 +42,7 @@ Example:
 (defun getopts ()
   "return all options"
   (hash-table-alist *init-opts*))
+
+(defun setopt (option value)
+  "set OPTION"
+  (setf (gethash option *init-opts*) value))
