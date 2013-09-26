@@ -46,3 +46,18 @@ Example:
 (defun setopt (option value)
   "set OPTION"
   (setf (gethash option *init-opts*) value))
+
+(defun help ()
+  "return a help string on the command-line options"
+  (format nil "~{~A~^ ~}"
+	  (iter:iter
+	   (iter:for (option type . rest) :in *getopts*)
+	   (when option
+	     (iter:collect
+	      (format nil "--~A~A"
+		      option
+		      (case type
+			(:none "")
+			(:optional "[=]")
+			(:required "=")
+			(t ""))))))))
