@@ -9,5 +9,6 @@
    #:getopts
    #:getopt
    #:setopt
+   #:help
    ))
 
